@@ -3,17 +3,17 @@ const app = express(); //iniciando o express
 const PORT = process.env.PORT || 8080;
 
 //criando a rota inicial
-app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site do Lehi e Victor!</h1>");
+app.get("/", function(req, res) {
+    res.send("<h1>Bem vindo ao nosso site do Lehi e Victor!</h1>");
 })
 
 //rota do cadastro de produtos
-app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1>");
+app.get("/produtos", function(req, res) {
+    res.send("<h1>Lista de Produtos Novos!</h1>");
 })
 
 //rota com parametro 
-app.get("/consulta/:parametro", function(req,res){
+app.get("/consulta/:parametro", function(req, res) {
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
     res.send("retorno consulta:" + req.params.parametro);
@@ -21,15 +21,15 @@ app.get("/consulta/:parametro", function(req,res){
 
 
 //rota com parametro opcional
-app.get("/cadastro/{:nome}", function(req,res){
+app.get("/cadastro/{:nome}", function(req, res) {
     //req --> dados enviados pelo cliente
     var nome = req.params.nome;
-    if (nome){
+    if (nome) {
         res.send("<h1>produto " + nome + " criado guri!</h1>");
-    }else{
+    } else {
         res.send("produto criado meu amigo!");
     }
-    
+
 })
 
 
@@ -41,12 +41,8 @@ app.get("/cadastro/{:nome}", function(req,res){
 //    }
 //})
 
-console.log ("PORT env: ", process.env.port);
+console.log("PORT env: ", process.env.port);
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
-
-
-
-
